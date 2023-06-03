@@ -73,3 +73,12 @@
     top: 83.65%;
     text-align: center;
 }
+.form1{
+ width: 400px;
+ height: 600px;
+ top: 22%;
+ position: absolute;
+ margin: auto;
+ background-color: white;
+ border-radius: 3px;
+}
