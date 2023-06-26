@@ -1,0 +1,1 @@
+<?php session_start();ob_start();   //$con=mysqli_connect("localhost","advusr","tEST1122","advsolution");$con=mysqli_connect("localhost","u503105426_usr1","Kitza4321","u503105426_quiz");?>

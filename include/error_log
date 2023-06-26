@@ -1,0 +1,2 @@
+[06-Jun-2022 02:46:07 UTC] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'atozwuzo_soumitr'@'localhost' to database 'atozwuzo_soumitra' in /home3/atozwuzo/public_html/project/bill/include/config.php on line 2
+[06-Jun-2022 02:46:20 UTC] PHP Warning:  mysqli_connect(): (HY000/1044): Access denied for user 'atozwuzo_soumitr'@'localhost' to database 'atozwuzo_soumitra' in /home3/atozwuzo/public_html/project/bill/include/config.php on line 2
