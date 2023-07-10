@@ -1,4 +1,4 @@
-<?php include("include/config.php");  ?>
+<?php include("include/config.php"); ?>
 
 <!doctype html>
 <html lang="zxx">
@@ -32,7 +32,7 @@
 
 <link rel="stylesheet" href="assets/css/responsive.css">
 <title>Astute Loot</title>
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="icon" type="image/png" href="assets/img/Logo.png">
 </head>
 
 <style>
@@ -45,7 +45,7 @@
 .protect-content .protect-inner-content .number span {background-color:#f59019; }
 .protect-content span {color:#139ff0;}
 .preloader {background:#f59019;}
-.protect-image {background-image: url(assets/img/hhh.png);}
+.protect-image {background-image: url(assets/img/arcade_background.jpg);}
 .single-blog-item .post-content h3 a {
     color: #f59019;
 }
@@ -132,7 +132,7 @@ if(isset($_SESSION["contestuser"]))
 <div class="main-responsive-menu">
 <div class="logo">
 <a href="index.php" style="color:#f59019;font-size:22px;font-weight:800;"  >
-  <!--<img src="assets/img/logo-1.png" alt="image"> -->
+<img src="assets/img/Logo.png" alt="image">
   Astute Loot
 </a>
 </div>
@@ -143,8 +143,7 @@ if(isset($_SESSION["contestuser"]))
 <div class="container">
 <nav class="navbar navbar-expand-md navbar-light">
 <a class="navbar-brand" href="index.php" style="color:#f59019;font-size:24px;" >
-   <!--<img src="assets/img/logo-1.png" alt="image"> -->
-   Astute Loot
+<img src="assets/img/logoMAIN.png" alt="image">
 </a>
 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 <ul class="navbar-nav">
@@ -177,6 +176,17 @@ Account
 </li>
 <?php } ?>
 
+<?php 
+if(isset($_SESSION["contestuser"]))
+{
+?>
+<li class="nav-item">
+<a href="redeem.php" class="nav-link">
+Redeem
+</a>
+</li>
+<?php } ?>
+
 <li class="nav-item">
 <a href="help.php" class="nav-link">
 Help
@@ -194,7 +204,7 @@ Help
 </div>-->
 
 <div class="option-item">
-<a href="quiz.php" class="default-btn" style="background:#139ff0;" >Join Contest</a>
+<a href="quiz.php" class="default-btn" style="background:#139ff0;" >Join Quiz!</a>
 </div>
 
 </div>
@@ -223,7 +233,7 @@ Help
 </div>-->
 
 <div class="option-item">
-<a href="" class="default-btn" style="background:#139ff0;" >Join Contest</a>
+<a href="" class="default-btn" style="background:#139ff0;" >Join Quiz!</a>
 </div>
 
 </div>
@@ -293,7 +303,7 @@ $row=mysqli_fetch_assoc($result);
 <div class="number">
 <span>2</span>
 </div>
-<h4>Choose a quiz which is open </h4>
+<h4>Choose an open quiz</h4>
 <p>Browse our selection of quizzes and submit an answer if you know it!</p>
 </div>
 <div class="protect-inner-content">
@@ -301,53 +311,13 @@ $row=mysqli_fetch_assoc($result);
  <span>3</span>
 </div>
 <h4>Win Prize</h4>
-<p>Check Result when quiz closes to see if you answered correctly and win your gold!</p>
+<p>Check the results when quiz closes to see if you answered correctly and win your gold!</p>
 </div>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="protect-image"></div>
 </div>
-</div>
-</div>
-</section>
-
-
-<section class="blog-area pt-100 pb-100">
-<div class="container-fluid">
-<div class="row">
-
-<?php 
-$sql=" SELECT * FROM `quiz`  where `start_date`<now() and `end_date`>now()  ";
-$result=mysqli_query($con,$sql);
-while($row=mysqli_fetch_assoc($result))
-{
-?>
-<div class="col-lg-3 col-md-6">
-<div class="single-blog-item">
-<div class="post-image">
-<img src="admin/<?php echo $row["image"]; ?>" alt="image">
-</div>
-<div class="post-content">
-<h3>
-<a href="javascript:void(0);">Prize Pool <span><?php echo $row["credit"]; ?>cr</span></a>
-</h3>
-<ul class="post-meta">
-
-<li>
-<i class="bx bx-time"></i>
-Closes: <?php echo $row["end_date"]; ?>
-</li>
-</ul>
-<p>  </p>
-<a href="submit-answer.php?qid=<?php echo base64_encode($row["id"]); ?>" class="default-btn" style="background:#139ff0;" >Play Now <i class="flaticon-right-arrow"></i></a>
-</div>
-</div>
-</div>
-<?php } ?>
-
-
-
 </div>
 </div>
 </section>
@@ -506,7 +476,7 @@ Closes: <?php echo $row["end_date"]; ?>
 <thead>
 <tr>
 <th>
-##
+#
 </th>
 <th>
 Quiz
@@ -583,13 +553,7 @@ while($row=mysqli_fetch_assoc($result))
 <div class="col-lg-3 col-sm-6">
 <div class="single-footer-widget">
 <div class="footer-logo">
-<h2><a href="index.php">Quizhub</a></h2>
-<?php 
-$sql=" SELECT *FROM `about_us` limit 1  ";
-$result=mysqli_query($con,$sql);
-$row=mysqli_fetch_assoc($result);
-?>
-<p><?php echo substr($row["text"],0,300); ?></p>
+<h2><a href="index.php">Astute loot</a></h2>
 <ul class="social">
 <li>
 <a href="#" class="facebook" target="_blank">
@@ -597,7 +561,7 @@ $row=mysqli_fetch_assoc($result);
 </a>
 </li>
 <li>
-<a href="#" class="twitter" target="_blank">
+<a href="https://twitter.com/Astuteloot_" class="twitter" target="_blank">
 <i class='bx bxl-twitter'></i>
 </a>
 </li>
@@ -607,8 +571,8 @@ $row=mysqli_fetch_assoc($result);
 </a>
 </li>
 <li>
-<a href="#" class="linkedin" target="_blank">
-<i class='bx bxl-linkedin'></i>
+<a href="#" class="youtube" target="_blank">
+<i class='bx bxl-youtube'></i>
 </a>
 </li>
 </ul>
@@ -677,10 +641,6 @@ $row=mysqli_fetch_assoc($result);
 <li>
 <a href="#">Support</a>
 </li>
-<li>
-<a href="#">Managing your money</a>
-</li>
-
 </ul>
 </div>
 </div>

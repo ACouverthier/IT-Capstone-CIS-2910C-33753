@@ -5,7 +5,7 @@
 <div class="page-banner-area">
 <div class="container">
 <div class="page-banner-content">
-<h2>Play Quiz Now</h2>
+<h2>Weekly Quizzes</h2>
 <!--
 <ul>
 <li>

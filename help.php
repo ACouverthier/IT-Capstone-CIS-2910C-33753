@@ -1,4 +1,6 @@
 <?php include("include/config.php");  ?>
+<?php include("include/header.php");  ?>
+
 
 <?php 
 if(isset($_POST["fullname"]))
@@ -74,7 +76,7 @@ if(isset($_POST["yourname"]))
 
 <link rel="stylesheet" href="assets/css/responsive.css">
 <title>Astute Loot</title>
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="icon" type="image" href="/assets/img/Logo.png">
 </head>
 
 <style>
@@ -145,136 +147,8 @@ if(isset($_POST["yourname"]))
 
 <body>
 
-<!--
-<div class="preloader">
-<div class="loader">
-<div class="shadow"></div>
-<div class="box"></div>
-</div>
-</div> -->
 
-
-<div class="top-header-area">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-lg-6">
-<ul class="top-header-information">
-<!--
-<li>
-<i class='bx bx-envelope'></i>
-<a href=""><span class="__cf_email__" data-cfemail="fa929f969695ba9d979b9396d4999597">[info@Quizygold.com]</span></a>
-</li>
-<li>
-<i class='bx bxs-phone'></i>
-<a href="tel:15553125678">+1 (521) 312-5678</a>
-</li>
--->
-</ul>
-</div>
-<div class="col-lg-6">
-<ul class="top-header-others">
-
-<?php 
-if(isset($_SESSION["contestuser"]))
-{
-?>
-<li>
-<i class='bx bxs-user'></i>
-<a href="logout.php">Logout</a>
-</li>
-<?php }else{?>
-
-<li>
-<i class='bx bxs-user'></i>
-<a href="register.php">Register</a>
-</li>
-
-<li>
-<i class='bx bx-user'></i>
-<a href="login.php">Sign In</a>
-</li>
-<?php } ?>
-
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-
-<div class="navbar-area">
-<div class="main-responsive-nav">
-<div class="container">
-<div class="main-responsive-menu">
-<div class="logo">
-<a href="index.php" style="color:#f59019;font-size:22px;font-weight:800;"  >
-  <!--<img src="assets/img/logo-1.png" alt="image"> -->
-  Astute Loot
-</a>
-</div>
-</div>
-</div>
-</div>
-<div class="main-navbar">
-<div class="container">
-<nav class="navbar navbar-expand-md navbar-light">
-<a class="navbar-brand" href="index.php" style="color:#f59019;font-size:24px;" >
-   <!--<img src="assets/img/logo-1.png" alt="image"> -->
-   Astute Loot
-</a>
-<div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-<ul class="navbar-nav">
-
-<li class="nav-item">
-<a href="index.php" class="nav-link">
-Home
-</a>
-</li>
-
-<li class="nav-item">
-<a href="quiz.php" class="nav-link">
-Quiz
-</a>
-</li>
-
-<li class="nav-item">
-<a href="about.php" class="nav-link">
-About
-</a>
-</li>
-
-<?php 
-if(isset($_SESSION["contestuser"]))
-{
-?>
-<li class="nav-item">
-<a href="account.php" class="nav-link">
-Account
-</a>
-</li>
-<?php } ?>
-
-<li class="nav-item">
-<a href="help.php" class="nav-link">
-Help
-</a>
-</li>
-
-</ul>
 <div class="others-options d-flex align-items-center">
-<!--
-<div class="option-item">
-<form class="search-box">
-<input type="text" class="form-control" placeholder="Search for..">
-<button type="submit"><i class="flaticon-loupe"></i></button>
-</form>
-</div>-->
-
-<!--
-<div class="option-item">
-<a href="join-contest.php" class="default-btn" style="background:#139ff0;" >Join Contest</a>
-</div>-->
-
 </div>
 </div>
 </nav>
@@ -292,19 +166,6 @@ Help
 <div class="container">
 <div class="option-inner">
 <div class="others-options d-flex align-items-center">
-<!--
-<div class="option-item">
-<form class="search-box">
-<input type="text" class="form-control" placeholder="Search for..">
-<button type="submit"><i class="flaticon-loupe"></i></button>
-</form>
-</div>-->
-
-<!--
-<div class="option-item">
-<a href="join-contest.php" class="default-btn" style="background:#139ff0;" >Join Contest</a>
-</div>-->
-
 </div>
 </div>
 </div>
@@ -323,14 +184,6 @@ Help
 <div class="container">
 <div class="page-banner-content">
 <h2>Help</h2>
-
-<!--
-<ul>
-<li>
-<a href="index.php">Home</a>
-</li>
-<li>Help</li>
-</ul>-->
 
 </div>
 </div>
@@ -420,30 +273,6 @@ Help
   
 </div>
 
-
-
-
-<!--
-<ul class="about-warp-list">
-<li>
-<i class="flaticon-check"></i>
-consectetur adipiscing elit
-</li>
-<li>
-<i class="flaticon-check"></i>
-Labore et dolore magna aliqua.
-</li>
- <li>
-<i class="flaticon-check"></i>
-Quis ipsum suspendisse ultrices gravida.
-</li>
-<li>
-<i class="flaticon-check"></i>
-Risus commodo viverra maecenas accumsan.
-</li>
-</ul>
--->
-
 </div>
 </div>
 <div class="col-lg-3">
@@ -463,7 +292,6 @@ while($row=mysqli_fetch_assoc($result))
 <span><?php echo $c; ?></span>
 </div>
 <h4><?php echo $row["title"]; ?></h4>
-<!--<p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
 </div>
 <?php $c++; } ?>
 
@@ -476,129 +304,7 @@ while($row=mysqli_fetch_assoc($result))
 
 
 
-<section class="footer-area pt-100 pb-70">
-<div class="container">
-<div class="row">
-<div class="col-lg-3 col-sm-6">
-<div class="single-footer-widget">
-<div class="footer-logo">
-<h2><a href="index.php">Quizhub</a></h2>
-<?php 
-$sql=" SELECT *FROM `about_us` limit 1  ";
-$result=mysqli_query($con,$sql);
-$row=mysqli_fetch_assoc($result);
-?>
-<p><?php echo substr($row["text"],0,300); ?></p>
-<ul class="social">
-<li>
-<a href="#" class="facebook" target="_blank">
-<i class='bx bxl-facebook'></i>
-</a>
-</li>
-<li>
-<a href="#" class="twitter" target="_blank">
-<i class='bx bxl-twitter'></i>
-</a>
-</li>
-<li>
-<a href="#" class="pinterest" target="_blank">
-<i class='bx bxl-instagram'></i>
-</a>
-</li>
-<li>
-<a href="#" class="linkedin" target="_blank">
-<i class='bx bxl-linkedin'></i>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-lg-3 col-sm-6">
-<div class="single-footer-widget">
-<h3>Contact</h3>
-<ul class="footer-contact-info">
-
-<?php 
-$sql=" SELECT *FROM `contact_information` limit 1  ";
-$result=mysqli_query($con,$sql);
-$row=mysqli_fetch_assoc($result);
-?>
-<li>
-<i class='bx bxs-phone'></i>
-<span>Phone</span>
-<a href="tel:<?php echo $row["phone"]; ?>">+<?php echo $row["phone"]; ?></a>
-</li>
-<li>
-<i class='bx bx-envelope'></i>
-<span>Email</span>
-<a href="javascript:void(0);"><span class="__cf_email__" data-cfemail="6b030e0707042b070e1d0e45080406">[<?php echo $row["email"]; ?>]</span></a>
-</li>
- <li>
-<i class='bx bx-map'></i>
-<span>Address</span>
-<?php echo $row["address"]; ?>
-</li>
-</ul>
-</div>
-</div>
-<div class="col-lg-3 col-sm-6">
-<div class="single-footer-widget pl-5">
-<h3>Usefull Links</h3>
-<ul class="quick-links">
-<li>
-<a href="index.php">Home</a>
-</li>
-<li>
-<a href="register.php">Register</a>
-</li>
-<li>
-<a href="login.php">Login</a>
-</li>
-
-<li>
-<a href="quiz.php">Quiz</a>
-</li>
-
-</ul>
-</div>
-</div>
-<div class="col-lg-3 col-sm-6">
-<div class="single-footer-widget">
-<h3>Help & guidance</h3>
-<ul class="quick-links">
-<li>
-<a href="#">Terms and Conditions</a>
-</li>
-<li>
-<a href="help.php">Contact</a>
-</li>
-<li>
-<a href="#">Support</a>
-</li>
-<li>
-<a href="#">Managing your money</a>
-</li>
-
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-
-<div class="copyright-area">
-<div class="container">
-<div class="copyright-area-content">
-<p>
-Copyright © <?php echo date('Y'); ?> Astute Loot. All Rights Reserved by
-<span style="color:#f59019;" >Astute Loot</span>
-</p>
-</div>
-</div>
-</div>
-
+<?php include("include/footer.php");  ?>
 
 
 <div class="go-top">

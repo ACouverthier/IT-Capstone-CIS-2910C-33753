@@ -180,8 +180,8 @@ if(isset($_SESSION["contestuser"]))
 <div class="main-responsive-menu">
 <div class="logo">
 <a href="index.php" style="color:#f59019;font-size:22px;font-weight:800;"  >
-  <!--<img src="assets/img/logo-1.png" alt="image"> -->
-  Quizhub
+<img src="assets/img/Logo.png" alt="image">
+Astute Loot
 </a>
 </div>
 </div>
@@ -191,8 +191,7 @@ if(isset($_SESSION["contestuser"]))
 <div class="container">
 <nav class="navbar navbar-expand-md navbar-light">
 <a class="navbar-brand" href="index.php" style="color:#f59019;font-size:24px;" >
-   <!--<img src="assets/img/logo-1.png" alt="image"> -->
-   Quizhub
+<img src="assets/img/logoMAIN.png" alt="image">
 </a>
 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 <ul class="navbar-nav">

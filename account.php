@@ -35,7 +35,7 @@
 
 <link rel="stylesheet" href="assets/css/responsive.css">
 <title>Astute Loot</title>
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="icon" type="image/png" href="assets/img/Logo.png"> 
 </head>
 
 <style>
@@ -120,16 +120,7 @@
 <div class="row align-items-center">
 <div class="col-lg-6">
 <ul class="top-header-information">
-<!--
-<li>
-<i class='bx bx-envelope'></i>
-<a href=""><span class="__cf_email__" data-cfemail="fa929f969695ba9d979b9396d4999597">[info@Quizygold.com]</span></a>
-</li>
-<li>
-<i class='bx bxs-phone'></i>
-<a href="tel:15553125678">+1 (521) 312-5678</a>
-</li>
--->
+
 </ul>
 </div>
 <div class="col-lg-6">
@@ -169,8 +160,8 @@ if(isset($_SESSION["contestuser"]))
 <div class="main-responsive-menu">
 <div class="logo">
 <a href="index.php" style="color:#f59019;font-size:22px;font-weight:800;"  >
-  <!--<img src="assets/img/logo-1.png" alt="image"> -->
-  AstuteLoot
+<img src="assets/img/Logo.png" alt="image">
+  Astute Loot
 </a>
 </div>
 </div>
@@ -179,9 +170,8 @@ if(isset($_SESSION["contestuser"]))
 <div class="main-navbar">
 <div class="container">
 <nav class="navbar navbar-expand-md navbar-light">
-<a href="index.php" style="color:#f59019;font-size:22px;font-weight:800;"  >
-  <!--<img src="assets/img/logo-1.png" alt="image"> -->
-  AstuteLoot
+<a class="navbar-brand" href="index.php" style="color:#f59019;font-size:24px;" >
+<img src="assets/img/logoMAIN.png" alt="image">
 </a>
 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 <ul class="navbar-nav">
@@ -192,8 +182,8 @@ Home
 </li>
 
 <li class="nav-item">
-<a href="result.php" class="nav-link">
-Results
+<a href="quiz.php" class="nav-link">
+Quiz
 </a>
 </li>
 
@@ -213,6 +203,17 @@ Account
 </li>
 <?php } ?>
 
+<?php 
+if(isset($_SESSION["contestuser"]))
+{
+?>
+<li class="nav-item">
+<a href="redeem.php" class="nav-link">
+Redeem
+</a>
+</li>
+<?php } ?>
+
 <li class="nav-item">
 <a href="help.php" class="nav-link">
 Help
@@ -223,18 +224,6 @@ Help
 
 </ul>
 <div class="others-options d-flex align-items-center">
-<!--
-<div class="option-item">
-<form class="search-box">
-<input type="text" class="form-control" placeholder="Search for..">
-<button type="submit"><i class="flaticon-loupe"></i></button>
-</form>
-</div>-->
-
-<!--
-<div class="option-item">
-<a href="join-contest.php" class="default-btn" style="background:#139ff0;" >Join Contest</a>
-</div>-->
 
 </div>
 </div>
@@ -253,18 +242,6 @@ Help
 <div class="container">
 <div class="option-inner">
 <div class="others-options d-flex align-items-center">
-<!--
-<div class="option-item">
-<form class="search-box">
-<input type="text" class="form-control" placeholder="Search for..">
-<button type="submit"><i class="flaticon-loupe"></i></button>
-</form>
-</div>-->
-
-<!--
-<div class="option-item">
-<a href="join-contest.php" class="default-btn" style="background:#139ff0;" >Join Contest</a>
-</div>-->
 
 </div>
 </div>
@@ -284,14 +261,6 @@ Help
 <div class="container">
 <div class="page-banner-content">
 <h2>Account</h2>
-
-<!--
-<ul>
-<li>
-<a href="index.php">Home</a>
-</li>
-<li>Help</li>
-</ul>-->
 
 </div>
 </div>
@@ -313,7 +282,7 @@ Help
  
 ?>   
   
-<p style="font-size:18px;font-weight:600;" >Your current credit points <?php echo $row6["credit"]; ?></p>  
+<p style="font-size:18px;font-weight:600;" > Current Gold: <?php echo $row6["credit"]; ?></p>  
 
 
 </div>
@@ -375,38 +344,66 @@ Help
 <section class="footer-area pt-100 pb-70">
 <div class="container">
 <div class="row">
-
-
-<div class="col-lg-4 col-sm-6">
+<div class="col-lg-3 col-sm-6">
 <div class="single-footer-widget">
-<h3>Contact</h3>
-<ul class="footer-contact-info">
-
-<!--
+<div class="footer-logo">
+<h2><a href="index.php">Astute loot</a></h2>
+<ul class="social">
 <li>
-<i class='bx bxs-phone'></i>
-<span>Phone</span>
-<a href="tel:15147939-357">+1 (514) 7939-357</a>
-</li>-->
-
-
-<li>
-<i class='bx bx-envelope'></i>
-<span>Email</span>
-info@quizygold.com
+<a href="#" class="facebook" target="_blank">
+<i class='bx bxl-facebook'></i>
+</a>
 </li>
- <li>
-<i class='bx bx-map'></i>
-<span>Address</span>
-United Kingdom <br> Edinburgh
-
+<li>
+<a href="https://twitter.com/Astuteloot_" class="twitter" target="_blank">
+<i class='bx bxl-twitter'></i>
+</a>
+</li>
+<li>
+<a href="#" class="pinterest" target="_blank">
+<i class='bx bxl-instagram'></i>
+</a>
+</li>
+<li>
+<a href="#" class="youtube" target="_blank">
+<i class='bx bxl-youtube'></i>
+</a>
 </li>
 </ul>
 </div>
 </div>
-<div class="col-lg-4 col-sm-6">
+</div>
+<div class="col-lg-3 col-sm-6">
+<div class="single-footer-widget">
+<h3>Contact</h3>
+<ul class="footer-contact-info">
+
+<?php 
+$sql=" SELECT *FROM `contact_information` limit 1  ";
+$result=mysqli_query($con,$sql);
+$row=mysqli_fetch_assoc($result);
+?>
+<li>
+<i class='bx bxs-phone'></i>
+<span>Phone</span>
+<a href="tel:<?php echo $row["phone"]; ?>">+<?php echo $row["phone"]; ?></a>
+</li>
+<li>
+<i class='bx bx-envelope'></i>
+<span>Email</span>
+<a href="javascript:void(0);"><span class="__cf_email__" data-cfemail="6b030e0707042b070e1d0e45080406">[<?php echo $row["email"]; ?>]</span></a>
+</li>
+ <li>
+<i class='bx bx-map'></i>
+<span>Address</span>
+<?php echo $row["address"]; ?>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-3 col-sm-6">
 <div class="single-footer-widget pl-5">
-<h3>Usefull Links</h3>
+<h3>Quick Links</h3>
 <ul class="quick-links">
 <li>
 <a href="index.php">Home</a>
@@ -417,35 +414,27 @@ United Kingdom <br> Edinburgh
 <li>
 <a href="login.php">Login</a>
 </li>
+
 <li>
-<a href="result.php">Result</a>
-</li>
-<li>
-<a href="about.php">About</a>
-</li>
-<li>
-<a href="help.php">Help</a>
+<a href="quiz.php">Quiz</a>
 </li>
 
 </ul>
 </div>
 </div>
-<div class="col-lg-4 col-sm-6">
+<div class="col-lg-3 col-sm-6">
 <div class="single-footer-widget">
-<h3>Legal</h3>
+<h3>Help & guidance</h3>
 <ul class="quick-links">
-
-
 <li>
-<a href="terms.php">Terms of Use</a>
+<a href="#">Terms and Conditions</a>
 </li>
 <li>
-<a href="privacy.php">Privacy Policy</a>
+<a href="help.php">Contact</a>
 </li>
 <li>
-<a href="cookies.php">Cookies</a>
+<a href="#">Support</a>
 </li>
-
 </ul>
 </div>
 </div>

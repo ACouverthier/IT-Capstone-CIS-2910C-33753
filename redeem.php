@@ -1,42 +1,7 @@
 <?php include("include/config.php");  ?>
+<?php if(!isset($_SESSION["contestuser"])) header("location:login.php"); ?>
 
-<?php 
-if(isset($_POST["fullname"]))
-{
-$fullname=mysqli_real_escape_string($con,$_POST["fullname"]);
-$email=mysqli_real_escape_string($con,$_POST["email"]);
-$country=mysqli_real_escape_string($con,$_POST["country"]);
-$city=mysqli_real_escape_string($con,$_POST["city"]);
-$address=mysqli_real_escape_string($con,$_POST["address"]);
-$username=mysqli_real_escape_string($con,$_POST["username"]);
-$password=mysqli_real_escape_string($con,$_POST["password"]);
- 
-$sql=" SELECT *FROM `register_user` where  `username`='".$username."'   ";
-$result=mysqli_query($con,$sql);
-$num=mysqli_num_rows($result);  
-  
-$sql2=" SELECT *FROM `register_user` where  `email`='".$email."'   ";
-$result2=mysqli_query($con,$sql2);
-$num2=mysqli_num_rows($result2);  
 
-if($num>0)
-{
- $error_msg=" Username Exist ";
-}	
-else if($num2>0)
-{
- $error_msg2=" Email  Exist ";
-}
-else
-{	
- $sql2=" insert into `register_user` set `name`='".$fullname."',email='".$email."',country='".$country."',city='".$city."',address='".$address."',username='".$username."',password='".$password."'  ";  
- mysqli_query($con,$sql2);
- $success_msg="Register Success!!!";
-}
-  
-}
-
-?>
 
 <!doctype html>
 <html lang="zxx">
@@ -70,7 +35,7 @@ else
 
 <link rel="stylesheet" href="assets/css/responsive.css">
 <title>Astute Loot</title>
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="icon" type="image/png" href="assets/img/Logo.png"> 
 </head>
 
 <style>
@@ -96,7 +61,7 @@ else
 .copyright-area .copyright-area-content p a { color: #f59019; }
 
 .mean-container .mean-nav ul li a {color: #f59019;}
-.page-banner-area {background-image:none;}
+
 .page-banner-content ul li {color: #fff;}
 .page-banner-content ul li::before {background:#fff;}
 
@@ -106,6 +71,36 @@ else
     font-size: 40px;
 }
 
+</style>
+
+<style>
+.goals-content .goals-inner-content .number span {
+    display: inline-block;
+    height: 21px;
+    width: 21px;
+    line-height: 20px;
+    background-color: #4865ff;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 50px;
+    -webkit-transition: .5s;
+    transition: .5s;
+}
+
+.goals-content .goals-inner-content h4 {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+</style>
+
+<style>
+.contact-form {
+    padding-top: 0;
+    box-shadow: none;
+}
 </style>
 
 
@@ -125,16 +120,7 @@ else
 <div class="row align-items-center">
 <div class="col-lg-6">
 <ul class="top-header-information">
-<!--
-<li>
-<i class='bx bx-envelope'></i>
-<a href=""><span class="__cf_email__" data-cfemail="fa929f969695ba9d979b9396d4999597">[info@Quizygold.com]</span></a>
-</li>
-<li>
-<i class='bx bxs-phone'></i>
-<a href="tel:15553125678">+1 (521) 312-5678</a>
-</li>
--->
+
 </ul>
 </div>
 <div class="col-lg-6">
@@ -174,8 +160,8 @@ if(isset($_SESSION["contestuser"]))
 <div class="main-responsive-menu">
 <div class="logo">
 <a href="index.php" style="color:#f59019;font-size:22px;font-weight:800;"  >
-<img src="/assets/img/Logo.png" type=logo alt="image">
-Astute Loot
+<img src="assets/img/Logo.png" alt="image">
+  Astute Loot
 </a>
 </div>
 </div>
@@ -189,7 +175,6 @@ Astute Loot
 </a>
 <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
 <ul class="navbar-nav">
-
 <li class="nav-item">
 <a href="index.php" class="nav-link">
 Home
@@ -207,7 +192,6 @@ Quiz
 About
 </a>
 </li>
-
 <?php 
 if(isset($_SESSION["contestuser"]))
 {
@@ -219,26 +203,27 @@ Account
 </li>
 <?php } ?>
 
+<?php 
+if(isset($_SESSION["contestuser"]))
+{
+?>
+<li class="nav-item">
+<a href="redeem.php" class="nav-link">
+Redeem
+</a>
+</li>
+<?php } ?>
+
 <li class="nav-item">
 <a href="help.php" class="nav-link">
 Help
 </a>
 </li>
 
+
+
 </ul>
 <div class="others-options d-flex align-items-center">
-<!--
-<div class="option-item">
-<form class="search-box">
-<input type="text" class="form-control" placeholder="Search for..">
-<button type="submit"><i class="flaticon-loupe"></i></button>
-</form>
-</div>-->
-
-<!--
-<div class="option-item">
-<a href="join-contest.php" class="default-btn" style="background:#139ff0;" >Join Contest</a>
-</div>-->
 
 </div>
 </div>
@@ -257,18 +242,6 @@ Help
 <div class="container">
 <div class="option-inner">
 <div class="others-options d-flex align-items-center">
-<!--
-<div class="option-item">
-<form class="search-box">
-<input type="text" class="form-control" placeholder="Search for..">
-<button type="submit"><i class="flaticon-loupe"></i></button>
-</form>
-</div>-->
-
-<!--
-<div class="option-item">
-<a href="join-contest.php" class="default-btn" style="background:#139ff0;" >Join Contest</a>
-</div>-->
 
 </div>
 </div>
@@ -287,126 +260,31 @@ Help
 <div class="page-banner-area">
 <div class="container">
 <div class="page-banner-content">
-<h2>Register</h2>
-<!--
-<ul>
-<li>
-<a href="index.php">Home</a>
-</li>
-<li>Register</li>
-</ul>
--->
+<h2>Redeem</h2>
 
 </div>
 </div>
 </div>
 
 
-<section class="contact-area ptb-100">
+<section class="about-area bg-ffffff ptb-100">
 <div class="container">
-<div class="section-title">
-<h2>Create An Account</h2>
-<?php if(isset($error_msg)){ ?><p style="color:red;font-size:20px;font-weight:800;" > <?php echo $error_msg; ?> </p> <?php } ?>
-
-<!--<p>To Join Quiz Contest , Please enter your personal information city , zip , address and register. </p>-->
-</div>
-<div class="contact-form">
-
-<?php if(isset($success_msg)){ ?><p style="color:green;font-size:20px;font-weight:800;" > <?php echo $success_msg; ?> </p> <?php } ?>
-
-<form  action="" method="post" >
-
 <div class="row">
+<div class="col-lg-8  contact-form">
+<div class="about-content-warp">
+ 
+<p style="background:#139ff0;" class="default-btn"  ><?php echo $_SESSION["contestuser"]; ?></p>
 
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label>Full name</label>
-<input type="text" name="fullname" id="fullname" class="form-control" required="" data-error="Please enter your name" placeholder="Full name">
-<div class="help-block with-errors"></div>
-</div>
-</div>
-
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label>Email</label>
-<input type="email" name="email" id="email" class="form-control" required="" data-error="Please enter your email" placeholder="Email">
-<div class="help-block with-errors"></div>
-</div>
-</div>
-
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label>Country</label>
-<select name="country" id="country"  class="form-control">
-<?php 
-$sql=" SELECT *FROM `countries` order by `name`  ";
-$result=mysqli_query($con,$sql);
-while($row=mysqli_fetch_assoc($result))
-{
-?>
-<option value="<?php echo $row["id"]; ?>" ><?php echo $row["name"]; ?></option>
-<?php } ?>
-
-</select>
-<div class="help-block with-errors"></div>
-</div>
-</div>
-
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label>City</label>
-<input type="text" name="city" required="" data-error="Please enter your city" class="form-control" placeholder="City">
-<div class="help-block with-errors"></div>
-</div>
-</div>
-
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label>Address</label>
-<input type="text" name="address" required="" data-error="Please enter your address" class="form-control" placeholder="Address">
-<div class="help-block with-errors"></div>
-</div>
-</div>
-
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label>Username</label>
-<input type="text" name="username" id="username" required="" data-error="Please enter your username" class="form-control" placeholder="Username">
-<div class="help-block with-errors"></div>
-</div>
-</div>
-
-<div class="col-lg-6 col-md-6">
-<div class="form-group">
-<label>Password</label>
-<input type="text" name="password" id="password" required="" data-error="Please enter your password" class="form-control" placeholder="Password">
-<div class="help-block with-errors"></div>
-</div>
-</div>
+<?php
+ $sql6=" SELECT *FROM `register_user` where username='".$_SESSION["contestuser"]."'  ";
+ $result6=mysqli_query($con,$sql6);
+ $row6=mysqli_fetch_assoc($result6);
+ 
+?>   
+  
+<p style="font-size:18px;font-weight:600;" > Current Gold: <?php echo $row6["credit"]; ?></p>  
 
 
-
-<div class="col-lg-12">
-<div class="form-check">
-<input type="checkbox" class="form-check-input" id="checkme" required>
-<label class="form-check-label" for="checkme">
-Accept <a href="terms-of-service.html">Terms of Services</a> and <a href="privacy-policy.html">Privacy Policy.</a>
-</label>
-</div>
-</div>
-
-
-<div class="col-lg-12 col-md-12">
-<button type="submit" class="default-btn disabled" style="pointer-events: all; cursor: pointer;background:#139ff0;background:#066297;">Register</button>
-<div id="msgSubmit" class="h3 text-center hidden"></div>
-<div class="clearfix"></div>
-</div>
-
-
-</div>
-</form>
-</div>
-</div>
 </section>
 
 
